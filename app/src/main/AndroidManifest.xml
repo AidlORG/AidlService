@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="com.example.aidlservice.AidlService"
+            android:exported="true"
+            android:enabled="true"
+            android:externalService="true">
+        </service>
     </application>
 
 </manifest>

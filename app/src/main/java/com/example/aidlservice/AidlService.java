@@ -18,4 +18,10 @@ public class AidlService extends Service {
             }
         };
     }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.d("binderOnUnbind", "onUnbind: ");
+        return super.onUnbind(intent);
+    }
 }

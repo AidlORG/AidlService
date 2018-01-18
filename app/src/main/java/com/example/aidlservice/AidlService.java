@@ -13,10 +13,25 @@ public class AidlService extends Service {
         Log.d("binderOnBind", "onBind: trying to bind...");
         return new IAidlService.Stub() {
             @Override
-            public void sendCommand(String command) throws RemoteException {
-                Log.d("onBind", "sendCommand: sent "+ command);
+            public String sendCommand(String command) throws RemoteException {
+                Log.d("commandReceived", "Command: "+ command);
+                return processCommand(command);
             }
         };
+    }
+
+    private String processCommand(String command) {
+        switch (command){
+            case "start":
+                return "Command was started.";
+            case "stop":
+                return "Command was stopped.";
+            case "hi":
+            case "hello":
+                return "Hello!";
+            default:
+                return "Command not found.";
+        }
     }
 
     @Override
